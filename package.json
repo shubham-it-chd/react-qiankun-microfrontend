@@ -1,0 +1,25 @@
+{
+  "name": "react-qiankun-microfrontend",
+  "version": "1.0.0",
+  "description": "React Qiankun Microfrontend with Context7",
+  "private": true,
+  "workspaces": [
+    "main-app",
+    "micro-app-1",
+    "micro-app-2"
+  ],
+  "scripts": {
+    "start": "concurrently \"npm run start:main\" \"npm run start:micro1\" \"npm run start:micro2\"",
+    "start:main": "cd main-app && npm start",
+    "start:micro1": "cd micro-app-1 && npm start",
+    "start:micro2": "cd micro-app-2 && npm start",
+    "install:all": "npm install && cd main-app && npm install && cd ../micro-app-1 && npm install && cd ../micro-app-2 && npm install",
+    "build": "cd main-app && npm run build && cd ../micro-app-1 && npm run build && cd ../micro-app-2 && npm run build"
+  },
+  "devDependencies": {
+    "concurrently": "^7.6.0"
+  },
+  "dependencies": {
+    "ajv": "^7"
+  }
+}
